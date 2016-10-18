@@ -43,9 +43,9 @@ public class circularListClass <T> extends NodeC{
         NodeC aux = pivot;//Empezamos por crear un apuntador auxiliar que este apuntando
         //a nuestro pivote
         do{//Entramos a un ciclo en donde empezaremos a recorrer nuestra lista
-            aux = aux.next;
+            aux = aux.getNext();
         } 
-        while(aux.next != pivot);//Todo esto mientras que lo que sigue no este apuntando a pivote
+        while(aux.getNext() != pivot);//Todo esto mientras que lo que sigue no este apuntando a pivote
         //Esto nos sirve para ubicar el ultimo nodo, ya que el ultimo nodo siempre esta apuntando al nodo
         //en donde el pivote esta apuntando
         return aux;
@@ -89,12 +89,12 @@ public class circularListClass <T> extends NodeC{
                 return point;//Se regresa el valor del nodo y ahi termina nuestra busqueda
             }
             else{//Si lo contrario no se cumple quiere decir que no se encuentra en el pivote y
-                point = point.next;//se necesita mover el puntero para ir verificando valor por valor
+                point = point.getNext();//se necesita mover el puntero para ir verificando valor por valor
                 while(point.data != data && point != pivot){//El puntero se va recorriendo mientras se cumplan dos condiciones
                     //si el valor del puntero es diferente al valor que queremos encontrar y si no estamos en el pivote
-                    point = point.next;
+                    point = point.getNext();
                 }
-                if(point.data == data){//Si el Apuntador encontro el dato, despliega el mensaje
+                if(point.getData() == data){//Si el Apuntador encontro el dato, despliega el mensaje
                     //comunicando que el nodo se encuentra en la lista
                     System.out.println("El nodo esta disponible en el la lista");
                     return point;//Regresando de esta forma el valor que se encontro en el nodo apuntado

@@ -62,10 +62,10 @@ public class doubleLnkList<T> {
         }
         else{//Si contiene elementos
             aux = first;//colocamos auxiliar al inicio de la lista
-            while(aux.data != data && aux != last){//Mientras que no encuentre el dato, recorre la lista
+            while(aux.getData() != data && aux != last){//Mientras que no encuentre el dato, recorre la lista
                 aux = aux.next;//Se recorre la lista
             }
-            if(aux.data == data){
+            if(aux.getData() == data){
                 return aux;
             }
             else{
@@ -136,7 +136,7 @@ public class doubleLnkList<T> {
     
     public void eNodeFirst(){
         //movemos al apuntador first al siguiente nodo y el previo de este lo ponemos el null
-        first = first.next;
+        first = first.getNext();
         first.prev = null;
     }
     
@@ -144,7 +144,7 @@ public class doubleLnkList<T> {
         //movemos al apuntador last al nodo anteriory el next de este ultimo
         //last.prev.next = null;
         //last = last.prev;
-        last = last.prev;
+        last = last.getPrev();
         last.next = null;
     }
     
