@@ -9,7 +9,8 @@ package EstructurasdeDatos;
  *
  * @author josuealexis96
  */
-public class Node <T> {
+public class NodeQ <T> {
+    
     T data;
     Node next;
     
@@ -17,24 +18,9 @@ public class Node <T> {
      * Constructor
      * @param data 
      */
-    public Node (T data){
+    public NodeQ (T data){
         this.data = data;
         this.next = null;
     }
-
-    public T getData() {
-        return data;
-    }
-
-    public Node getNext() {
-        return next;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public void setNext(Node next) {
-        this.next = next;
-    }
+    
 }

@@ -18,4 +18,29 @@ public class NodeDL <T>{
     public NodeDL (T data){
         this.data = data;
     }
+
+    public NodeDL getNext() {
+        return next;
+    }
+
+    public void setNext(NodeDL next) {
+        this.next = next;
+    }
+
+    public NodeDL getPrev() {
+        return prev;
+    }
+
+    public void setPrev(NodeDL prev) {
+        this.prev = prev;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+    
 }

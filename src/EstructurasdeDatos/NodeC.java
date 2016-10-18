@@ -36,4 +36,12 @@ public class NodeC <T>{
     public void setData(T d){
         this.data = d;
     }
+
+    public NodeC getNext() {
+        return next;
+    }
+
+    public void setNext(NodeC next) {
+        this.next = next;
+    }
 }
