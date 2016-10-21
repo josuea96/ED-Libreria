@@ -65,8 +65,8 @@ public class doubleLnkList<T> {
             while(aux.getData() != data && aux != last){//Mientras que no encuentre el dato, recorre la lista
                 aux = aux.getNext();//Se recorre la lista
             }
-            if(aux.getData() == data){
-                return aux;
+            if(aux.getData() == data){//Si el dato que se encontró es igual al que se busca
+                return aux;//regresa el dato auxiliar
             }
             else{
                 return null;
@@ -152,5 +152,21 @@ public class doubleLnkList<T> {
     public void eList(){//Se crea un método que sirve para eliminar la lista y
         first = null;//el puntero que apunta al primer nodo (primero) apunta al valor null
         //para que de esta forma no tome en cuenta los demas nodos y la lista quede vacia
+    }
+
+    public NodeDL getFirst() {
+        return first;
+    }
+
+    public void setFirst(NodeDL first) {
+        this.first = first;
+    }
+
+    public NodeDL getLast() {
+        return last;
+    }
+
+    public void setLast(NodeDL last) {
+        this.last = last;
     }
 }
