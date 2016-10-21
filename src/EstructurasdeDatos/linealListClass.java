@@ -35,6 +35,10 @@ public class linealListClass <T>{
         return first == null;
     }
     
+    public void empty(){
+        first = null;
+    }
+    
     /**
      * 
      * @param data 
