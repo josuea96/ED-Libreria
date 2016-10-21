@@ -41,13 +41,14 @@ public class Stacks <T>{
         
     }
     
-    public boolean isEmpty(){
-        return top == null;
+    public boolean isEmpty(){//Método para verificar si la pila esta vacia
+        return top == null;//Se realiza una comparación para ver si top esta apuntando a null
+        //o no
     }
     
-    public void emptyStack(){
-        top = null;
-        size = 0;
+    public void emptyStack(){//Método para vaciar la pila
+        top = null;//Se apunta top a null para vaciarla
+        size = 0;//Se regresa el tamaño de la pila a cero
     }
 
     public void setTop(NodeS top) {
@@ -77,14 +78,14 @@ public class Stacks <T>{
     /**
      * Elimina un elemento de la pila
      */
-    public void pop(){
-        if (!isEmpty()){
-            //top = top.getNext();
-            top.setNext(top);
-            --size;
+    public void pop(){//Método para ir sacando dato por dato de la pila
+        if (!isEmpty()){//Se realiza un ciclo if para ver si la pila no esta vacia, si no lo está
+            top.setNext(top);//El apuntador top apunta al siguiente nodo
+            --size;//Y se reduce el tamaño de la pila en 1
         }
-        else{
-            System.out.println("La pila está vacia");
+        else{//De no ser así
+            System.out.println("La pila está vacia");//Se despliega un mensaje para mencionar
+            //que la pila se encuentra vacia
         }
     }
     
