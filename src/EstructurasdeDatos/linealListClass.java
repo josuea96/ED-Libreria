@@ -9,34 +9,42 @@ package EstructurasdeDatos;
  *
  * @author josuealexis96
  */
-public class linealListClass {
-    private Node first;
+public class linealListClass <T>{
+    private Node first;//Creación de los nodos que se usaran en las listas sencillas (primero y ultimo)
     private Node last;
     
     //Métodos
     
-    public void insertFirst(int n){
-        Node node = new Node(n);
+    /**
+     * 
+     * @param data 
+     */
+    public void insertFirst(T data){//Método para insertar 
+        Node node = new Node(data);
         if(isEmpty()){//Si está vacia la lista
-            first = node;
-            last = node;
+            first = node;//First apunta a nodo
+            last = node;//Last apunta a nodo
         }
         else{//Si no está vacia la lista
-            node.setNext(first);
-            first = node;
+            node.setNext(first);//El nodo va a apuntar a siguiente (donde se encuentra el puntero first)
+            first = node;//El apuntador first va a apuntar al nuevo nodo
         }
     }
     
-    private boolean isEmpty(){
+    private boolean isEmpty(){//Metodo para ver si la lista esta vacia
         return first == null;
     }
     
-    public void insertFinal(int n){
-        Node node = new Node(n);
-        if((first != null) && (last != null)){//Si está vacia la lista
-            last.setNext(node);
-            last = node;
-            node.setNext(null);
+    /**
+     * 
+     * @param data 
+     */
+    public void insertFinal(T data){//Método para insertar al final de la lista
+        Node node = new Node(data);
+        if((first != null) && (last != null)){//Si los apuntadores son diferentes de null
+            last.setNext(node);//El last va a apuntar a siguiente (donde se encuentra el nodo)
+            last = node;//Last apuntara al nuevo nodo
+            node.setNext(null);//Lo que apuntara el nodo creado en el siguiente lugar, será a null
         }
         else{//Si no está vacia la lista
             first = node;
@@ -45,17 +53,19 @@ public class linealListClass {
         }
     }
     
-    public void showList(){
-        if(!isEmpty()){
-            Node aux;
-            aux = first;
-            while(aux != null){
-                System.out.print("[ #" + aux.data + " ] -> ");
-                aux = aux.getNext();
+    public void showList(){//Método para imprimir la lista
+        if(!isEmpty()){//Se verifica si la lista no esta vacia
+            Node aux;//Creamos un puntero auxiliar
+            aux = first;//Que se encontrara ubicado en el nodo que tiene el apuntador first
+            while(aux != null){//Empieza un ciclo while para verificar si el apuntador
+                //auxiliar no se encuentra en null y de no ser así
+                System.out.print("[ #" + aux.getData() + " ] -> ");//Se imprime el dato que se
+                //encuentra en el puntero
+                aux = aux.getNext();//Y se va moviendo el puntero hasta llegar al final del arreglo
             }
-            System.out.println("");
+            System.out.println("");//Se imprime un simbolo haciendo referencia a null
         }
-        else{
+        else{//Si la lista se encuentra vacia, se imprime un mensaje mencionandolo
             System.out.println("La lista esta vacia");
         }
     }
