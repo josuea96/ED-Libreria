@@ -37,10 +37,6 @@ public class Stacks <T>{
         return size;//Regresa size
     }
     
-    public void setNext(){
-        
-    }
-    
     public boolean isEmpty(){//Método para verificar si la pila esta vacia
         return top == null;//Se realiza una comparación para ver si top esta apuntando a null
         //o no
