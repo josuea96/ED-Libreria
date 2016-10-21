@@ -36,6 +36,10 @@ public class doubleLnkList<T> {
         } 
     }
     
+    /**
+     * 
+     * @param data 
+     */
     public void insertLast(T data){
         //Creamos nuestro nodo
         NodeDL node = new NodeDL (data);
@@ -55,6 +59,11 @@ public class doubleLnkList<T> {
         return first == null && last == null;
     }
     
+    /**
+     * 
+     * @param data
+     * @return 
+     */
     public NodeDL searchNode(T data){
         NodeDL aux;
         if(isEmpty()){//Si está vacío retorna falso
@@ -108,6 +117,11 @@ public class doubleLnkList<T> {
         }
     }
     
+    /**
+     * 
+     * @param data
+     * @return 
+     */
     public boolean eNode(T data){//Se crea un método para borrar un nodo en especifico
         NodeDL aux = searchNode(data);//Se crea nodo que se utiliza para guardar el valor
         //del dato que se desea buscar en el nodo usando el metodo searchNode
