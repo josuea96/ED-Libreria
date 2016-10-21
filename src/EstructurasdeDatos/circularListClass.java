@@ -9,7 +9,7 @@ package EstructurasdeDatos;
  *
  * @author josuealexis96
  */
-public class circularListClass <T> extends NodeC{
+public class circularListClass <T>{
     //Atributos
     public NodeC pivot;
     
@@ -19,6 +19,11 @@ public class circularListClass <T> extends NodeC{
     }
     
     //Métodos
+    
+    /**
+     * 
+     * @param data inserta un dato al inicio de la lista
+     */
     public void insert(T data){
         //Creamos nuestro nodo a insertar
         NodeC node = new NodeC(data);
@@ -51,6 +56,11 @@ public class circularListClass <T> extends NodeC{
         return aux;
     }
     
+    /**El metodo elimina un nodo sin tomar en cuenta la posición en donde se encuentre
+     * una vez encontrado se elimina, de no ser así, no hay nodo que se deba eliminar
+     * @param data
+     * @return 
+     */
     public boolean deleteNode(T data){
         NodeC a1 = searchNode(data); //Creamos un nodo apuntando a la información buscada.
         NodeC a2 = a1; //Creamos un segundo nodo para así usarlo para buscar el nodo anterior.
@@ -74,6 +84,11 @@ public class circularListClass <T> extends NodeC{
         }
     }
     
+    /**
+     * 
+     * @param data
+     * @return 
+     */
     public NodeC searchNode(T data){//Se crea un metodo con el cual estaremos buscando
         //un dato que querramos encontrar en nuestra lista circular
         NodeC point = pivot;//creamos un puntero que este apuntando al pivote para ir
