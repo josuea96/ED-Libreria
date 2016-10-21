@@ -21,6 +21,11 @@ public class Node <T> {
         this.data = data;
         this.next = null;
     }
+    
+    public Node(){
+        this.data = null;
+        this.next = null;
+    }
 
     public T getData() {
         return data;
