@@ -70,16 +70,16 @@ public class circularListClass <T>{
         } 
         else{//De no ser así
             if (a1 == pivot) { //Si el nodo se encuentra en la primera posición, es decir en pivote.
-                findLast().next = a1.next; //El apuntador del último nodo apuntará al apuntador del nodo.
-                pivot = a1.next; //Pivote apuntara al apuntador del nodo. 
-                a1.next = null; //El apuntador del nodo apuntara a nulo.
+                findLast().next = a1.getNext(); //El apuntador del último nodo apuntará al apuntador del nodo.
+                a1.setNext(pivot); //Pivote apuntara al apuntador del nodo. 
+                a1.setNext(null); //El apuntador del nodo apuntara a nulo.
             } 
             else{//Si el nodo no sé encuentra en la primera posición.
                 do {
-                    a2 = a2.next;
-                } while (a2.next!=a1);
-                a2.next = a1.next; //El apuntador 2 apuntara al siguiente lugar del primer apuntador
-                a1.next = null; //El apuntador 1 apuntara a nulo
+                    a2 = a2.getNext();
+                } while (a2.getNext()!=a1);
+                a2.setNext(a1.getNext());//El apuntador 2 apuntara al siguiente lugar del primer apuntador
+                a1.setNext(null); //El apuntador 1 apuntara a nulo
             } return true;
         }
     }
@@ -99,13 +99,13 @@ public class circularListClass <T>{
             return null;
         }
         else{//De lo contrario
-            if(point.data == data){//Si se realiza una comparación entre el dato que esta en el nodo
+            if(point.getData() == data){//Si se realiza una comparación entre el dato que esta en el nodo
                 //apuntado y el dato que estamos intentando buscar en la lista
                 return point;//Se regresa el valor del nodo y ahi termina nuestra busqueda
             }
             else{//Si lo contrario no se cumple quiere decir que no se encuentra en el pivote y
                 point = point.getNext();//se necesita mover el puntero para ir verificando valor por valor
-                while(point.data != data && point != pivot){//El puntero se va recorriendo mientras se cumplan dos condiciones
+                while(point.getData() != data && point != pivot){//El puntero se va recorriendo mientras se cumplan dos condiciones
                     //si el valor del puntero es diferente al valor que queremos encontrar y si no estamos en el pivote
                     point = point.getNext();
                 }
@@ -124,18 +124,27 @@ public class circularListClass <T>{
         }
     }
     
+    /**
+     * Metodo que sirve para mostrar todos los datos de la lista circula
+     */
     public void showList(){
-        if(isEmpty()){
+        if(isEmpty()){//Empezamos por un ciclo if para ver si la lista que tenemos
+            //se encuentra vacia o no, si lo esta, se despliega un mensaje informando
+            //al usuario que la lista se encuentra vacia
             System.out.println("La lista está vacia");
         }
-        else{
-            NodeC aux;
-            aux = pivot;
+        else{//En caso contrario
+            NodeC aux;//Creamos un apuntador auxiliar
+            aux = pivot;//Ese apuntador auxiliar va a estar en donde se encuentra el apuntador
+            //pivote
             System.out.print("pivot == >");
-            do{
+            do{//Empezamos por recorrer la lista y comenzamos a extraer los datos que se encuentran
+                //en los nodos
                 System.out.print(" [ " + aux.getData() + " ] ==>");
-                aux = aux.next;
-            } while(aux.next != pivot.next);
+                aux = aux.getNext();//Una vez desplegado el dato, el auxiliar cambia de lugar
+                //apuntando al siguiente nodo
+            } while(aux.getNext() != pivot.getNext());//Se realizan todas estas operaciones
+            //mientras que lo que sigue despues del apuntador sea diferente de donde se encuentra el pivote
         }
     }
 }
