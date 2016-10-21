@@ -81,5 +81,16 @@ public class Queue <T>{
     public int getSize() {
         return size;
     }
-    
+
+    public void setFirst(Node first) {
+        this.first = first;
+    }
+
+    public Node getLast() {
+        return last;
+    }
+
+    public void setLast(Node last) {
+        this.last = last;
+    }
 }

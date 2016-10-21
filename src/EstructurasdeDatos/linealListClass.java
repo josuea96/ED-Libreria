@@ -22,7 +22,7 @@ public class linealListClass {
             last = node;
         }
         else{//Si no está vacia la lista
-            node.next = first;
+            node.setNext(first);
             first = node;
         }
     }
@@ -33,13 +33,15 @@ public class linealListClass {
     
     public void insertFinal(int n){
         Node node = new Node(n);
-        if(isEmpty()){//Si está vacia la lista
-            first = node;
+        if((first != null) && (last != null)){//Si está vacia la lista
+            last.setNext(node);
             last = node;
+            node.setNext(null);
         }
         else{//Si no está vacia la lista
-            last = node;
             first = node;
+            node.setNext(last);
+            last = node;
         }
     }
     
@@ -47,13 +49,30 @@ public class linealListClass {
         if(!isEmpty()){
             Node aux;
             aux = first;
-            while(aux.next != null){
-                System.out.print("[ #" + aux.data + " ] -> ");
-                aux = aux.next;
+            while(aux != null){
+                System.out.print("[ #" + aux.data + " ] -> ");
+                aux = aux.getNext();
             }
+            System.out.println("");
         }
         else{
             System.out.println("La lista esta vacia");
         }
+    }
+
+    public Node getFirst() {
+        return first;
+    }
+
+    public void setFirst(Node first) {
+        this.first = first;
+    }
+
+    public Node getLast() {
+        return last;
+    }
+
+    public void setLast(Node last) {
+        this.last = last;
     }
 }

@@ -30,8 +30,8 @@ public class doubleLnkList<T> {
             this.last = node;
         }
         else{//Si la lista tiene elementos
-            node.next = first;//El apuntador "SIGUIENTE" del nuevo nodo, apunta al primer nodo de la lista
-            first.prev = node;//El apuntador "ANTERIOR" del primer nodo de la lista apunta al nuevo nodo
+            node.setNext(first);//El apuntador "SIGUIENTE" del nuevo nodo, apunta al primer nodo de la lista
+            first.setPrev(node);//El apuntador "ANTERIOR" del primer nodo de la lista apunta al nuevo nodo
             first = node;//El apuntador first (que es atributo de la lista) es igual al nodo creado
         } 
     }
@@ -45,8 +45,8 @@ public class doubleLnkList<T> {
             this.last = node;
         }
         else{//Si la lista tiene elementos
-            node.prev = last;//El apuntador "ANTERIOR" del nuevo nodo, apunta al ultimo nodo de la lista
-            last.next = node;//El apuntador "SIGUIENTE" del ultimo nodo de la lista apunta al nuevo nodo
+            node.setPrev(last);//El apuntador "ANTERIOR" del nuevo nodo, apunta al ultimo nodo de la lista
+            last.setNext(node);//El apuntador "SIGUIENTE" del ultimo nodo de la lista apunta al nuevo nodo
             last = node;//El apuntador last (que es atributo de la lista) es igual al nodo creado
         } 
     }
@@ -63,7 +63,7 @@ public class doubleLnkList<T> {
         else{//Si contiene elementos
             aux = first;//colocamos auxiliar al inicio de la lista
             while(aux.getData() != data && aux != last){//Mientras que no encuentre el dato, recorre la lista
-                aux = aux.next;//Se recorre la lista
+                aux = aux.getNext();//Se recorre la lista
             }
             if(aux.getData() == data){
                 return aux;
@@ -81,7 +81,7 @@ public class doubleLnkList<T> {
             System.out.print("☠ ");
             while(point != null){//Si la ubicación en donde esta el puntero es diferente de null
                 System.out.print("<==" + " [ " + point.data + " ] " + " ==> ");//Se imprime el dato encontrado en el nodo
-                point = point.next;//Se recorre la posición del puntero en 1
+                point = point.getNext();//Se recorre la posición del puntero en 1
             }
             System.out.print("☠");//Se imprime una calavera para indicar que es null
         }
@@ -127,8 +127,8 @@ public class doubleLnkList<T> {
                     eNodeLast();//Se elimina el ultimo nodo
             }
             else{
-                aux.prev.next = aux.next;
-                aux.next.prev = aux.prev;
+                aux.prev.next = aux.getNext();
+                aux.next.prev = aux.getPrev();
             }
             return true;
         }
@@ -137,7 +137,8 @@ public class doubleLnkList<T> {
     public void eNodeFirst(){
         //movemos al apuntador first al siguiente nodo y el previo de este lo ponemos el null
         first = first.getNext();
-        first.prev = null;
+        //first.prev = null;
+        first.setPrev(null);
     }
     
     public void eNodeLast(){
@@ -145,7 +146,7 @@ public class doubleLnkList<T> {
         //last.prev.next = null;
         //last = last.prev;
         last = last.getPrev();
-        last.next = null;
+        last.setNext(null);
     }
     
     public void eList(){//Se crea un método que sirve para eliminar la lista y

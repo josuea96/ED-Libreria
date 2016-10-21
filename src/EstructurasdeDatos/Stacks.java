@@ -49,6 +49,14 @@ public class Stacks <T>{
         top = null;
         size = 0;
     }
+
+    public void setTop(NodeS top) {
+        this.top = top;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
     
     /**
      * Introduce un nuevo elemento a la pila
@@ -60,7 +68,7 @@ public class Stacks <T>{
             top = node;
         }
         else{//Si la pila no está vacía
-            node.setNext(top);
+            node.setNext(top); //node.next=top;
             top = node;
         }
         ++size;
@@ -71,7 +79,8 @@ public class Stacks <T>{
      */
     public void pop(){
         if (!isEmpty()){
-            top = top.getNext();
+            //top = top.getNext();
+            top.setNext(top);
             --size;
         }
         else{
@@ -89,6 +98,9 @@ public class Stacks <T>{
                 aux = aux.getNext();
             }while(aux != null);
                 System.out.println("null");
+        }
+        else{
+            System.out.println("la pila esta vacia");
         }
     }
 }

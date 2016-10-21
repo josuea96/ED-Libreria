@@ -24,13 +24,13 @@ public class circularListClass <T> extends NodeC{
         NodeC node = new NodeC(data);
         if(!isEmpty()){//Si no está vacia la lista
             //Insertamos el nodo al inicio y recorremos los nodos
-            node.next = pivot;
+            node.setNext(pivot);
             findLast().next = node;
             pivot = node;
         }
         else{//Si la lista esta vacia
             pivot = node;
-            node.next = pivot;
+            node.setNext(pivot);
         }
     }
     
