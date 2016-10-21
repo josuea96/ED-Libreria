@@ -63,7 +63,7 @@ public class linealListClass <T>{
                 //encuentra en el puntero
                 aux = aux.getNext();//Y se va moviendo el puntero hasta llegar al final del arreglo
             }
-            System.out.println("");//Se imprime un simbolo haciendo referencia a null
+            System.out.println("☠");//Se imprime un simbolo haciendo referencia a null
         }
         else{//Si la lista se encuentra vacia, se imprime un mensaje mencionandolo
             System.out.println("La lista esta vacia");
