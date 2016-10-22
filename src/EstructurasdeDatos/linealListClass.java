@@ -63,11 +63,13 @@ public class linealListClass <T>{
             aux = first;//Que se encontrara ubicado en el nodo que tiene el apuntador first
             while(aux != null){//Empieza un ciclo while para verificar si el apuntador
                 //auxiliar no se encuentra en null y de no ser así
-                System.out.print("[ #" + aux.getData() + " ] -> ");//Se imprime el dato que se
+                //System.out.print("[ #" + aux.getData() + " ] -> ");//Se imprime el dato que se
                 //encuentra en el puntero
+                System.out.print(aux.getData());
+                System.out.println("");
                 aux = aux.getNext();//Y se va moviendo el puntero hasta llegar al final del arreglo
             }
-            System.out.println("☠");//Se imprime un simbolo haciendo referencia a null
+            //System.out.println("☠");//Se imprime un simbolo haciendo referencia a null
         }
         else{//Si la lista se encuentra vacia, se imprime un mensaje mencionandolo
             System.out.println("La lista esta vacia");
