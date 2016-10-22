@@ -73,6 +73,25 @@ public class linealListClass <T>{
             System.out.println("La lista esta vacia");
         }
     }
+    
+    public Node searchNode(T data){
+        Node aux;
+        if(isEmpty()){//Si está vacío retorna falso
+            return null;
+        }
+        else{//Si contiene elementos
+            aux = first;//colocamos auxiliar al inicio de la lista
+            while(aux.getData() != data && aux != last){//Mientras que no encuentre el dato, recorre la lista
+                aux = aux.getNext();//Se recorre la lista
+            }
+            if(aux.getData() == data){//Si el dato que se encontró es igual al que se busca
+                return aux;//regresa el dato auxiliar
+            }
+            else{
+                return null;
+            }
+        }
+    }
 
     public Node getFirst() {
         return first;
