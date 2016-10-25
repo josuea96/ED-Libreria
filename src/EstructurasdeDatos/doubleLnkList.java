@@ -37,7 +37,7 @@ public class doubleLnkList<T> {
     }
     
     /**
-     * 
+     * Metodo en donde insertaremos un nodo en la ultima posición
      * @param data 
      */
     public void insertLast(T data){
