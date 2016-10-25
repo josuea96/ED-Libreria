@@ -65,6 +65,23 @@ public class Deque <T>{
         } 
     }
     
+    public void showList(){//Método para mostrar la lista
+        if(!isEmpty()){//Se verifica si la lista no vacia
+            NodeDL point;//Se crea un puntero
+            point = (NodeDL) first;//Y se iguala a primero para empezar a recorrer el arreglo
+            System.out.print("☠ ");
+            while(point != null){//Si la ubicación en donde esta el puntero es diferente de null
+                System.out.print("<==" + " [ " + point.data + " ] " + " ==> ");//Se imprime el dato encontrado en el nodo
+                point = point.getNext();//Se recorre la posición del puntero en 1
+            }
+            System.out.print("☠");//Se imprime una calavera para indicar que es null
+        }
+        else{
+            System.out.println("La lista esta vacia");//Si la lista esta vacia se imprime un mensaje
+            //indicando que esta vacia
+        }
+    }
+    
     public void eNodeFirst(){
         //movemos al apuntador first al siguiente nodo y el previo de este lo ponemos el null
         first = first.getNext();
@@ -114,6 +131,4 @@ public class Deque <T>{
     public void setSize(int size) {
         this.size = size;
     }
-    
-    
 }
