@@ -94,7 +94,50 @@ public class linealListClass <T>{
             }
         }
     }
+    
+    public void eFirst(){
+        setFirst(first.getNext());
+    }
+    
+    public void eLast(){
+        Node a = first;
+        while (a.getNext().getNext() != null) {
+            a = a.getNext();
+        }
+        setLast(a);
+        getLast().setNext(null);
+    }
 
+    public boolean eNode(T data){
+        if (isEmpty()){
+            System.out.println("La lista está vacía.");
+            return false;
+        } 
+        else{
+            Node t, t2;
+            t = first;
+            t2 = null;
+            if(getFirst().getData().equals(data)){
+                eFirst();
+                return true;
+            } else if(getLast().getData().equals(data)){
+                eLast();
+                return true;
+            } 
+            else {
+                while (t.getNext() != null && t.getNext().getData() != data && !data.equals(t.getNext().getData())){
+                    t = t.getNext(); 
+                }
+                if (t.getNext()!=null && t.getNext().getData().equals(data)) {
+                    t.setNext(t.getNext().getNext());
+                    return true;
+                }
+                System.out.println("El dato no se encontró en la lista");
+                return false;
+            }
+        }
+    }
+    
     public Node getFirst() {
         return first;
     }
