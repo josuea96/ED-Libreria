@@ -20,8 +20,17 @@ public class BinaryTree{
         this.elements = 0;
     }
     
-    public void insertNode(int data, NodeTree root){
+    public void addNode(int data){
         NodeTree node = new NodeTree(data);
+        if(root == null){
+            System.out.println("Esta lista esta vacia");
+        }
+        else{
+            this.insertNode(node, this.root);
+        }
+    }
+    
+    public void insertNode(NodeTree node, NodeTree root){
         if(isEmpty(root)){
             root = node;
             height++;
@@ -35,7 +44,7 @@ public class BinaryTree{
                 }
                 else{//Si tiene un elemento a la izquierda
                     //Buscará por la izquierda hasta encontrar un espacio.
-                    insertNode(data,root.right);
+                    insertNode(node,root.right);
                 }
             }
             else{//Si no es mayor que raiz
@@ -44,11 +53,10 @@ public class BinaryTree{
                 }
                 else{//Si tiene un elemento a la derecha, buscará por la
                     //derecha hasta encontrar un espacio
-                    insertNode(data, root.left);
+                    insertNode(node, root.left);
                 }
             }
         }
-        this.elements++;
     }
     
     public void eNode(){
@@ -60,7 +68,8 @@ public class BinaryTree{
     }
     
     public boolean isEmpty(NodeTree root){
-        return root.left == null && root.right == null;
+        //return root.left == null && root.right == null;
+        return root == null;
     }
     
     public NodeTree getRoot(){
@@ -71,8 +80,50 @@ public class BinaryTree{
         
     }
     
-    public void eElements(){
-        
+    public int getElements(){
+        return this.elements;
     }
     
+    /**
+     * Método para recorrer el arbol en InOrden
+     * @param root 
+     */
+    public void inorden(NodeTree root){//Metodo para hacer el inorden
+        if(root != null){
+            inorden(root.right);//El puntero raiz se movera por la izquierda hasta encontrar un nulo
+            System.out.print(root.data + " ");
+            //Se imprime lo que se encuentra en la raiz
+            inorden(root.left);//El puntero raiz se movera por la derecha hasta encontrar un nulo
+        }
+        /*else{
+            System.out.println("El arbol se encuentra vacio");
+        }
+        */
+    }
+    
+    public void postorden(NodeTree root){//Metodo para hacer el inorden
+        if(root != null){
+            inorden(root.left);//El puntero raiz se movera por la izquierda hasta encontrar un nulo
+            inorden(root.right);//El puntero raiz se movera por la derecha hasta encontrar un nulo
+            System.out.print(root.data + " ");
+            //Se imprime lo que se encuentra en la raiz
+        }
+        /*else{
+            System.out.println("El arbol se encuentra vacio");
+        }
+                */
+    }
+    
+    public void preorden(NodeTree root){//Metodo para hacer el inorden
+        if(root != null){
+            System.out.print(root.data + " ");
+            inorden(root.left);//El puntero raiz se movera por la izquierda hasta encontrar un nulo
+            inorden(root.right);//El puntero raiz se movera por la derecha hasta encontrar un nulo
+            //Se imprime lo que se encuentra en la raiz
+        }
+        /*else{
+            System.out.println("El arbol se encuentra vacio");
+        }
+                */
+    }
 }

@@ -21,4 +21,17 @@ public class NodeTree <T> {
         this.left = null;
         this.right = null;
     }
+
+    public int getData() {
+        return data;
+    }
+
+    public NodeTree getLeft() {
+        return left;
+    }
+
+    public NodeTree getRight() {
+        return right;
+    }
+    
 }
