@@ -1,3 +1,4 @@
+//Josué Alexis Ramírez Pérez 513622 4º Semestre
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,7 +32,7 @@ public class BinaryTree{
     }
     
     public void insertNode(NodeTree node, NodeTree root){
-        if(isEmpty(root)){
+        if(isEmpty()){
             root = node;
             height++;
         }
@@ -67,7 +68,7 @@ public class BinaryTree{
         
     }
     
-    public boolean isEmpty(NodeTree root){
+    public boolean isEmpty(){
         //return root.left == null && root.right == null;
         return root == null;
     }
@@ -125,5 +126,51 @@ public class BinaryTree{
             System.out.println("El arbol se encuentra vacio");
         }
                 */
+    }
+    
+    public void deleteNode(int data){    
+        if(searchNode(data, root) == null){ // si no se encontro el dato
+            System.out.println("El nodo que busca no existe dentro del arbol");
+        } else { //si se encontro el dato
+            NodeTree aux = searchNode(data, root); //se crea un auxiliar 
+            if(aux.right == null && aux.left == null){ //si no tiene "hijos"
+                aux = null; //simplemente se borra
+           } else { //si tiene "hijos"
+                if(aux.right != null && aux.left != null){ //si tiene dos "hijos"
+                    aux = aux.right; //el de la derecha se pasa al "centro"
+                    aux.right = null; //se borra el nodo de la derecha
+                } else { // si solo tiene un "hijo"
+                    if(aux.right != null){ //si el "hijo" esta a la derecha
+                        aux = aux.right; // el de la derecha se pasa al centro
+                        aux.right = null;
+                    } else { 
+                        if(aux.left != null){ // si el "hijo" esta a la izquierda
+                            aux = aux.left;
+                            aux.left = null;
+                        }
+                    }
+                }
+            }
+        }
+        this.elements --; // el numero de elementos disminuye en 1
+    }
+    
+    public  NodeTree searchNode(int data, NodeTree root){
+        if(!isEmpty()){ // si no esta vacio el arbol
+            if(root.data == data){ //checa si la raiz actual es el dato que se esta buscando
+                return root;  //entonces devuelve el dato
+            } else { //si no es, entonces checa
+                if(root.data >= data && root.right != null){ //si el dato es menor que la raiz
+                   // root = root.right; 
+                    searchNode(data, root.right); // entonces va a buscar por la derecha
+                } else {
+                    if(root.data <= data && root.left != null){ //si el dato es mayor que la raiz
+                        //root = root.left;
+                        searchNode(data, root.left); //busca entonces por la izquierda
+                    }
+                } 
+            } 
+        }
+        return null;
     }
 }
